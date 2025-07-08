@@ -1,0 +1,25 @@
+<form action="/createData">
+    <input type="text" name="name" id=""><br><br>
+    <input type="text" name="surname" id=""><br><br>
+
+    <button type="submit">Submit</button>
+</form>
+
+<table border="1">
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Surname</td>
+    </tr>
+    <%
+        storeData.map((item , index) => {
+    %>
+            <tr>
+                <td><%= index + 1 %></td>
+                <td><%= item.name %></td>
+                <td><%= item.surname %></td>
+            </tr>
+    <%
+        })
+    %>
+</table>
