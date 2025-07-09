@@ -1,7 +1,8 @@
 <form action="/createData">
-    <input type="text" name="name" id=""><br><br>
-    <input type="text" name="surname" id=""><br><br>
-
+    <input type="text" name="name" id="" value="<%= (editData) ? editData.name : '' %>"><br><br>
+    <input type="text" name="surname" id="" value="<%= (editData) ? editData.surname : '' %>"><br><br>
+    <input type="number" name="number" id="" value="<%= (editData) ? editData.number : '' %>"> <br><br>
+    <input type="file" id="" name="image"  accept="*/*"> 
     <button type="submit">Submit</button>
 </form>
 
@@ -10,6 +11,10 @@
         <td>Id</td>
         <td>Name</td>
         <td>Surname</td>
+        <td>number</td>
+        <td>image</td>
+        <td>DELETE</td>
+        <td>UPDATE</td>
     </tr>
     <%
         storeData.map((item , index) => {
@@ -18,8 +23,18 @@
                 <td><%= index + 1 %></td>
                 <td><%= item.name %></td>
                 <td><%= item.surname %></td>
+                <td><%= item.number %></td>
+                <td><img src="<%= item.image %>" alt="" width="50px"></td>
+                <td>
+                    <button><a href="/deleteData/<%= index %>">DELETE</a></button>
+                </td>
+                <td>
+                    <button><a href="/editData?editId=<%= index %>">UPDATE</a></button>
+                </td>
             </tr>
     <%
         })
     %>
 </table>
+
+
