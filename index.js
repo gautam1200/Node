@@ -2,7 +2,7 @@
 const express = require('express')
 const fs = require('fs')
 const app = express()
-app.set('view engine' , 'ejs')
+app.set('view engine', 'ejs')
 
 
 let storeData = []
@@ -17,10 +17,8 @@ if (readData != '') {
     //console.log("storeData ==> ",storeData);  
 }
 
-
-
 app.get("/", (req, res) => {
-    res.render('data', { storeData , editData : null})
+    res.render('data', { storeData, editData: null })
 
 })
 
@@ -33,15 +31,14 @@ app.get("/createData", (req, res) => {
     // console.log(data);
     // console.log(JSON.stringify(data));
 
-if(editId != null)
-{
-    storeData[editId] = data
-    editId = null
-}
-else{
+    if (editId != null) {
+        storeData[editId] = data
+        editId = null
+    }
+    else {
 
-    storeData.push(data)
-}
+        storeData.push(data)
+    }
 
     fs.writeFileSync('index1.json', JSON.stringify(storeData))
     res.redirect("/")
@@ -54,13 +51,13 @@ app.get("/deleteData/:deleteId", (req, res) => {
     res.redirect('/')
 })
 
-app.get("/editData" , (req, res) => {
+app.get("/editData", (req, res) => {
     console.log('hello');
-  editId = req.query.editId
+    editId = req.query.editId
     console.log(req.query.editId);
     const editData = storeData[editId]
     console.log(editData);
-    res.render('data' , {editData , storeData})
+    res.render('data', { editData, storeData })
 })
 
 app.listen(3002)

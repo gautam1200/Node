@@ -1,8 +1,8 @@
 <form action="/createData">
-    <input type="text" name="name" id="" value="<%= (editData) ? editData.name : '' %>"><br><br>
-    <input type="text" name="surname" id="" value="<%= (editData) ? editData.surname : '' %>"><br><br>
-    <input type="number" name="number" id="" value="<%= (editData) ? editData.number : '' %>"> <br><br>
-    <input type="file" id="" name="image"  accept="*/*"> 
+    <input type="text" name="name" placeholder="Name" id="" value="<%= (editData) ? editData.name : '' %>"><br><br>
+    <input type="text" name="surname" placeholder="SurName" id="" value="<%= (editData) ? editData.surname : '' %>"><br><br>
+    <input type="number" name="number" placeholder="Number" id="" value="<%= (editData) ? editData.number : '' %>"> <br><br>
+    <!-- <input type="file" id="" name="image"  accept="*/*">  -->
     <button type="submit">Submit</button>
 </form>
 
@@ -12,7 +12,6 @@
         <td>Name</td>
         <td>Surname</td>
         <td>number</td>
-        <td>image</td>
         <td>DELETE</td>
         <td>UPDATE</td>
     </tr>
@@ -24,7 +23,6 @@
                 <td><%= item.name %></td>
                 <td><%= item.surname %></td>
                 <td><%= item.number %></td>
-                <td><img src="<%= item.image %>" alt="" width="50px"></td>
                 <td>
                     <button><a href="/deleteData/<%= index %>">DELETE</a></button>
                 </td>
