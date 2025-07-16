@@ -49,7 +49,7 @@ app.get("/deleteData/:deleteId", (req, res) => {
     storeData.splice(deleteId, 1)
     fs.writeFileSync('index1.json', JSON.stringify(storeData))
     res.redirect('/')
-})
+}) 
 
 app.get("/editData", (req, res) => {
     console.log('hello');
