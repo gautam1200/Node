@@ -16,7 +16,7 @@ if (readData != '') {
     storeData = JSON.parse(readData)
     //console.log("storeData ==> ",storeData);  
 }
-
+ 
 app.get("/", (req, res) => {
     res.render('data', { storeData, editData: null })
 
